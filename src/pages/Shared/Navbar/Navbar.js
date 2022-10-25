@@ -4,7 +4,7 @@ import Logo from "../../../asserts/Images/logo.png";
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 md:px-16">
+    <div className="navbar bg-[#1e467f] md:px-16 py-4 text-white">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -25,7 +25,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black"
           >
             <li>
               <Link>Item 1</Link>
@@ -37,37 +37,53 @@ const Navbar = () => {
           </ul>
         </div>
         <Link className=" normal-case text-xl">
-          <div className="flex gap-1 ">
+          <div className="flex gap-3 relative ">
             <img src={Logo} alt="" />
-            <h1 className="font-bold">
-              <span> Programmig </span>
-              <span className="text-[#f23276]">Learning</span> Reactive
-            </h1>
+            <h1 className="font-bold -mt-1 ">Programmig</h1>
+            <div
+              className="absolute  mt-5 flex ml-11
+             "
+            >
+              <small className="text-xs italic text-[#f23276]">
+                Learning Reactive
+              </small>
+            </div>
           </div>
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
-          <li>
-            <Link to="/">Home</Link>
+          <li className="mr-3 text-lg ">
+            <Link className="hover:text-[#f23276] bg-transparent" to="/">
+              Home
+            </Link>
           </li>
-          <li>
-            <Link to="/courses">Courses</Link>
+          <li className="mr-3 text-lg">
+            <Link className="hover:text-[#f23276] bg-transparent" to="/courses">
+              Courses
+            </Link>
           </li>
-          <li>
-            <Link to="/faq">FAQ</Link>
+          <li className="mr-3 text-lg">
+            <Link className="hover:text-[#f23276] bg-transparent" to="/faq">
+              FAQ
+            </Link>
           </li>
-          <li>
-            <Link to="/blog">Blog</Link>
+          <li className="mr-3 text-lg">
+            <Link className="hover:text-[#f23276] bg-transparent" to="/blog">
+              Blog
+            </Link>
           </li>
 
-          <li>
-            <Link>Dark</Link>
+          <li className="text-lg">
+            <Link className="hover:text-[#f23276] bg-transparent">Dark</Link>
           </li>
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login" className="btn">
+        <Link
+          to="/login"
+          className="btn bg-[#f23276] border-[#f23276] rounded-md"
+        >
           Login
         </Link>
       </div>
