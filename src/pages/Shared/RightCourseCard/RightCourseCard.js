@@ -1,30 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const RightCourseCard = () => {
+const RightCourseCard = ({ course }) => {
+  const { id, picture, title } = course;
   return (
-    <div className="max-w-xs rounded-md shadow-md bg-gray-900 text-gray-100">
-      <img
-        src="https://source.unsplash.com/random/300x300/?2"
-        alt=""
-        className="object-cover object-center w-full rounded-t-md h-72 bg-gray-500"
-      />
-      <div className="flex flex-col justify-between p-6 space-y-8">
-        <div className="space-y-2">
-          <h2 className="text-3xl font-semibold tracking-wide">
-            Donec lectus leo
-          </h2>
-          <p className="text-gray-100">
-            Curabitur luctus erat nunc, sed ullamcorper erat vestibulum eget.
-          </p>
-        </div>
-        <button
-          type="button"
-          className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900"
-        >
-          Read more
-        </button>
+    <Link to={`/courseDetails/${id}`}>
+      <div
+        className="relative rounded-xl flex items-end justify-start w-full text-left bg-center bg-cover h-96 "
+        style={{
+          backgroundImage: `url(${picture})`,
+        }}
+      >
+        <div className="absolute top-0 bottom-0 left-0 right-0 rounded-xl bg-gradient-to-b via-transparent from-gray-900 to-gray-900"></div>
+
+        <h2 className="z-10 p-5">
+          <button
+            rel="noopener noreferrer"
+            to={`/courseDetails/${id}`}
+            className="font-medium text-xl hover:underline text-gray-100 hover:text-[#f23276]"
+          >
+            {title}
+          </button>
+        </h2>
       </div>
-    </div>
+    </Link>
   );
 };
 
