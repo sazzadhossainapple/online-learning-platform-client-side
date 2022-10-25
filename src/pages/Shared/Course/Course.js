@@ -7,7 +7,10 @@ const Course = ({ courses }) => {
     <>
       <div className="col-span-1 ">
         {courses.map((courseTitle) => (
-          <h2 key={courseTitle.id} className="mb-8 text-xl font-bold ">
+          <h2
+            key={courseTitle.id}
+            className=" lg:mb-8 md:mb-8 sm:mb-4 mb-4 text-xl font-bold "
+          >
             <Link
               to={`/courseDetails/${courseTitle.id}`}
               className="hover:text-[#f23276]"
