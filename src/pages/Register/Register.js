@@ -1,15 +1,41 @@
+import { async } from "@firebase/util";
 import React from "react";
+import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/UserContext/UserContext";
 
 const Register = () => {
+  const { userCreate, updateUserProfile } = useContext(AuthContext);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const form = event.target;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    console.log(name, photoURL, email, password);
+
+    userCreate(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        handleUpdateUserProfile(name, photoURL);
+        form.reset();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const handleUpdateUserProfile = async (name, photoURL) => {
+    updateUserProfile(name, photoURL)
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -40,7 +66,7 @@ const Register = () => {
             </label>
             <input
               type="text"
-              name="photo"
+              name="photoURL"
               id="photo"
               required
               placeholder="Photo URL"

@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { AuthContext } from "../../context/UserContext/UserContext";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState("");
+  const { signInUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  // submit for handle
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -13,6 +18,16 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    signInUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (

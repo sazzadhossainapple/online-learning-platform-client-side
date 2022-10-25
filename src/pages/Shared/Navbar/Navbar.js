@@ -1,8 +1,21 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../../asserts/Images/logo.png";
+import { AuthContext } from "../../../context/UserContext/UserContext";
 
 const Navbar = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+
+  //user logout
+  const logOutUser = () => {
+    signOutUser()
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
     <div className="navbar bg-[#1e467f] md:px-16 py-4 text-white">
       <div className="navbar-start">
@@ -80,12 +93,56 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link
-          to="/login"
-          className="btn bg-[#f23276] border-[#f23276] rounded-md"
-        >
-          Login
-        </Link>
+        {user?.displayName}
+        {user?.uid ? (
+          <>
+            <div className="dropdown dropdown-end text-black">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    src={
+                      user?.photoURL
+                        ? user.photoURL
+                        : "https://placeimg.com/80/80/people"
+                    }
+                    alt=""
+                  />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li className="mb-3">
+                  <Link className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </Link>
+                </li>
+                <li className="mb-3">
+                  <Link>Settings</Link>
+                </li>
+                <li className="mb-3">
+                  <Link
+                    onClick={logOutUser}
+                    className="btn bg-[#f23276] border-[#f23276] text-white rounded-md"
+                  >
+                    Log out
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="btn bg-[#f23276] border-[#f23276] rounded-md"
+            >
+              Login
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
