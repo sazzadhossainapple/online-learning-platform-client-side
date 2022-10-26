@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../../asserts/Images/logo.png";
@@ -5,6 +6,7 @@ import { AuthContext } from "../../../context/UserContext/UserContext";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
+  const [darkToggle, setDarkToggle] = useState(false);
 
   //user logout
   const logOutUser = () => {
@@ -87,7 +89,15 @@ const Navbar = () => {
           </li>
 
           <li className="text-lg">
-            <Link className="hover:text-[#f23276] bg-transparent">Dark</Link>
+            <Link className="hover:text-[#f23276] bg-transparent">
+              <input
+                type="checkbox"
+                onClick={() => setDarkToggle(!darkToggle)}
+                className={
+                  darkToggle ? "toggle  bg-gray-700" : "toggle  bg-gray-400"
+                }
+              />
+            </Link>
           </li>
         </ul>
       </div>

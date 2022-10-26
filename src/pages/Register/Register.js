@@ -6,7 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/UserContext/UserContext";
 
 const Register = () => {
-  const { userCreate, updateUserProfile } = useContext(AuthContext);
+  const { userCreate, updateUserProfile, signInWithGoogle } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -32,9 +33,23 @@ const Register = () => {
       });
   };
 
+  // update user profile
   const handleUpdateUserProfile = async (name, photoURL) => {
     updateUserProfile(name, photoURL)
       .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  // handle google sign in
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate("/");
+      })
       .catch((error) => {
         console.error(error);
       });
@@ -113,7 +128,11 @@ const Register = () => {
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button aria-label="Log in with Google" className="p-3 rounded-sm">
+          <button
+            onClick={handleGoogleSignIn}
+            aria-label="Log in with Google"
+            className="p-3 rounded-sm"
+          >
             <FaGoogle />
           </button>
           <button aria-label="Log in with Twitter" className="p-3 rounded-sm">

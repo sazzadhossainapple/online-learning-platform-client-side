@@ -3,8 +3,11 @@ import { createContext } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  GithubAuthProvider,
+  GoogleAuthProvider,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
@@ -18,6 +21,9 @@ const auth = getAuth(app);
 const UserContext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
 
   // ceate a new user
   const userCreate = (email, password) => {
@@ -46,6 +52,18 @@ const UserContext = ({ children }) => {
     return signOut(auth);
   };
 
+  // google sign in with user
+  const signInWithGoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  // github sign in with user
+  const signInWithGithub = () => {
+    setLoading(true);
+    return signInWithPopup(auth, githubProvider);
+  };
+
   // on auth state changed
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (userCurrent) => {
@@ -63,6 +81,8 @@ const UserContext = ({ children }) => {
     signInUser,
     signOutUser,
     updateUserProfile,
+    signInWithGoogle,
+    signInWithGithub,
   };
 
   return (
