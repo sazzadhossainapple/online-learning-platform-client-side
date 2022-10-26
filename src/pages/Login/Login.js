@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 const Login = () => {
   const { signInUser, signInWithGoogle, signInWithGithub } =
     useContext(AuthContext);
-  const [showPassword, setShowPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -67,6 +67,9 @@ const Login = () => {
         setError(error.message);
       });
   };
+  const togglePassword = () => {
+    setShowPassword(!showPassword);
+  };
 
   return (
     <div className="flex justify-center items-center lg:px-0 md:px-0 sm:px-8 px-8 lg:py-16 md:py-16 sm:py-10 py-8">
@@ -106,7 +109,7 @@ const Login = () => {
               {showPassword ? (
                 <>
                   <AiFillEye
-                    onClick={(e) => setShowPassword(e)}
+                    onClick={togglePassword}
                     className="text-gray-400 absolute  mr-3 right-0 text-2xl "
                   ></AiFillEye>
                 </>

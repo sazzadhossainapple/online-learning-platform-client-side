@@ -5,19 +5,13 @@ import RightCourseCard from "../RightCourseCard/RightCourseCard";
 const Course = ({ courses }) => {
   return (
     <>
-      <div className="col-span-1 ">
+      <div className="col-span-1 bg-[#1e467f] p-7 rounded-md lg:mb-0 md:mb-4 sm:mb-4 mb-4">
         {courses.map((courseTitle) => (
-          <h2
-            key={courseTitle.id}
-            className=" lg:mb-8 md:mb-8 sm:mb-4 mb-4 text-xl font-bold "
-          >
-            <Link
-              to={`/courseDetails/${courseTitle.id}`}
-              className="hover:text-[#f23276]"
-            >
+          <Link to={`/courseDetails/${courseTitle.id}`} key={courseTitle.id}>
+            <h2 className="  mb-8 text-base hover:bg-gray-800 italic  font-bold bg-[#f23276] py-4 px-5 text-white text-center rounded-lg ">
               {courseTitle.title}
-            </Link>
-          </h2>
+            </h2>
+          </Link>
         ))}
       </div>
       <div className="col-span-3 ">

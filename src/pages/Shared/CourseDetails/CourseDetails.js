@@ -4,7 +4,6 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 
 const CourseDetails = () => {
   const courseDetails = useLoaderData();
-  console.log(courseDetails);
 
   const { title, id, picture, description } = courseDetails;
 
@@ -15,7 +14,7 @@ const CourseDetails = () => {
           Download To Pdf
         </button>
       </div>
-      <div className="">
+      <div className="border p-8">
         <h1
           className="text-center text-3xl font-bold
          mb-10"
