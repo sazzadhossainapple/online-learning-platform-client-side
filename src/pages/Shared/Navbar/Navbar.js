@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../../asserts/Images/logo.png";
 import { AuthContext } from "../../../context/UserContext/UserContext";
+import Image from "../../../asserts/Images/user.jpg";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
@@ -42,11 +43,39 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black"
           >
             <li>
-              <Link>Item 1</Link>
+              <Link className="hover:text-[#f23276] bg-transparent" to="/">
+                Home
+              </Link>
             </li>
 
             <li>
-              <Link>Item 3</Link>
+              <Link
+                className="hover:text-[#f23276] bg-transparent"
+                to="/courses"
+              >
+                Courses
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-[#f23276] bg-transparent" to="/faq">
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-[#f23276] bg-transparent" to="/blog">
+                Blog
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-[#f23276] bg-transparent">
+                <input
+                  type="checkbox"
+                  onClick={() => setDarkToggle(!darkToggle)}
+                  className={
+                    darkToggle ? "toggle  bg-gray-700" : "toggle  bg-gray-400"
+                  }
+                />
+              </Link>
             </li>
           </ul>
         </div>
@@ -110,14 +139,7 @@ const Navbar = () => {
             >
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img
-                    src={
-                      user?.photoURL
-                        ? user.photoURL
-                        : "https://placeimg.com/80/80/people"
-                    }
-                    alt=""
-                  />
+                  <img src={user?.photoURL ? user.photoURL : Image} alt="" />
                 </div>
               </label>
               <ul

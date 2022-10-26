@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/UserContext/UserContext";
 
 const Register = () => {
-  const { userCreate, updateUserProfile, signInWithGoogle } =
+  const { userCreate, updateUserProfile, signInWithGoogle, signInWithGithub } =
     useContext(AuthContext);
   const navigate = useNavigate();
+  const loaction = useLocation();
+  const [error, setError] = useState("");
+
+  const from = loaction.state?.from?.pathname || "/";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -25,10 +30,13 @@ const Register = () => {
         console.log(user);
         handleUpdateUserProfile(name, photoURL);
         form.reset();
-        navigate("/");
+        setError("");
+        toast.success("New User Create a Successfully.");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
+        setError(error.message);
       });
   };
 
@@ -38,6 +46,7 @@ const Register = () => {
       .then(() => {})
       .catch((error) => {
         console.error(error);
+        setError(error.message);
       });
   };
 
@@ -47,10 +56,25 @@ const Register = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
+        setError(error.message);
+      });
+  };
+
+  // handle google sign in
+  const handleGithubSignIn = () => {
+    signInWithGithub()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
       });
   };
 
@@ -119,6 +143,9 @@ const Register = () => {
             Sing up
           </button>
         </form>
+
+        <p className="text-red-500">{error}</p>
+
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
           <p className="px-3 text-sm text-gray-100">
@@ -134,7 +161,11 @@ const Register = () => {
           >
             <FaGoogle />
           </button>
-          <button aria-label="Log in with Twitter" className="p-3 rounded-sm">
+          <button
+            onClick={handleGithubSignIn}
+            aria-label="Log in with Twitter"
+            className="p-3 rounded-sm"
+          >
             <FaGithub />
           </button>
         </div>

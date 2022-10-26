@@ -4,10 +4,14 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { AuthContext } from "../../context/UserContext/UserContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signInUser, signInWithGoogle } = useContext(AuthContext);
+  const { signInUser, signInWithGoogle, signInWithGithub } =
+    useContext(AuthContext);
   const [showPassword, setShowPassword] = useState("");
+  const [error, setError] = useState("");
+
   const navigate = useNavigate();
   const loaction = useLocation();
 
@@ -26,10 +30,13 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        setError("");
+        toast.success("User Login Successfully.");
         navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);
+        setError(error.message);
       });
   };
 
@@ -43,6 +50,21 @@ const Login = () => {
       })
       .catch((error) => {
         console.error(error);
+        setError(error.message);
+      });
+  };
+
+  // handle google sign in
+  const handleGithubSignIn = () => {
+    signInWithGithub()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
       });
   };
 
@@ -108,6 +130,7 @@ const Login = () => {
             Sing in
           </button>
         </form>
+        <p className="text-red-500">{error}</p>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 bg-gray-300"></div>
           <p className="px-3 text-sm text-gray-100">
@@ -123,7 +146,11 @@ const Login = () => {
           >
             <FaGoogle />
           </button>
-          <button aria-label="Log in with Twitter" className="p-3 rounded-sm">
+          <button
+            onClick={handleGithubSignIn}
+            aria-label="Log in with Twitter"
+            className="p-3 rounded-sm"
+          >
             <FaGithub />
           </button>
         </div>
