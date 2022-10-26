@@ -1,4 +1,3 @@
-import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../../asserts/Images/logo.png";
@@ -93,10 +92,12 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        {user?.displayName}
         {user?.uid ? (
           <>
-            <div className="dropdown dropdown-end text-black">
+            <div
+              className="dropdown dropdown-end text-black tooltip tooltip-left tooltip-secondary"
+              data-tip={user.displayName}
+            >
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
                   <img

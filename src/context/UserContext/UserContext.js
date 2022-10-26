@@ -17,19 +17,23 @@ const auth = getAuth(app);
 
 const UserContext = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   // ceate a new user
   const userCreate = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
   // sing in with user
   const signInUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   // update profile
   const updateUserProfile = (name, photoURL) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photoURL,
@@ -38,6 +42,7 @@ const UserContext = ({ children }) => {
 
   // sign out with user
   const signOutUser = () => {
+    setLoading(true);
     return signOut(auth);
   };
 
@@ -45,6 +50,7 @@ const UserContext = ({ children }) => {
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (userCurrent) => {
       setUser(userCurrent);
+      setLoading(false);
     });
     return () => {
       unSubscribe();
@@ -52,6 +58,7 @@ const UserContext = ({ children }) => {
   }, []);
   const userInfo = {
     user,
+    loading,
     userCreate,
     signInUser,
     signOutUser,

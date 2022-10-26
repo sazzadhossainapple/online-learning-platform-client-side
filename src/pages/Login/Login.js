@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { AuthContext } from "../../context/UserContext/UserContext";
 
@@ -9,6 +9,9 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState("");
   const { signInUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const loaction = useLocation();
+
+  const from = loaction.state?.from?.pathname || "/";
 
   // submit for handle
   const handleSubmit = (event) => {
@@ -23,7 +26,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error(error);

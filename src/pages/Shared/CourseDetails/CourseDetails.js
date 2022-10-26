@@ -36,7 +36,10 @@ const CourseDetails = () => {
           ))}
         </div>
         <div className="flex justify-center mt-10">
-          <Link className="btn bg-[#f23276] border-[#f23276] rounded-md">
+          <Link
+            to={`/checkout/${id}`}
+            className="btn bg-[#f23276] border-[#f23276] rounded-md"
+          >
             Get premium access
           </Link>
         </div>

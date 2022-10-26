@@ -2,11 +2,12 @@ import { async } from "@firebase/util";
 import React from "react";
 import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/UserContext/UserContext";
 
 const Register = () => {
   const { userCreate, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -24,6 +25,7 @@ const Register = () => {
         console.log(user);
         handleUpdateUserProfile(name, photoURL);
         form.reset();
+        navigate("/");
       })
       .catch((error) => {
         console.error(error);
