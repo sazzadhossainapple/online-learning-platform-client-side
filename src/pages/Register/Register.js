@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import React from "react";
 import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";

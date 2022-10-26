@@ -6,7 +6,7 @@ const CourseDetails = () => {
   const courseDetails = useLoaderData();
   console.log(courseDetails);
 
-  const { title, id, picture, price, description } = courseDetails;
+  const { title, id, picture, description } = courseDetails;
 
   return (
     <div className="lg:px-16 md:px-16 sm:px-8 px-8 lg:py-16 md:py-16 sm:py-10 py-8">
