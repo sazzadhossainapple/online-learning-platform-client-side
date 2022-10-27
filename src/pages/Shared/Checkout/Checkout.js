@@ -21,6 +21,9 @@ const Checkout = () => {
           <p className="my-2">
             <span className="font-bold ">Email:</span> {user?.email}
           </p>
+          <p className="my-2">
+            <span className="font-bold ">User Name:</span> {user?.displayName}
+          </p>
 
           <h2 className="text-xl font-bold mb-2">
             {" "}

@@ -34,7 +34,7 @@ const CourseDetails = () => {
             {title}
           </h1>
           <div className="lg:w-96 md:w-96 sm:w-full w-full mx-auto">
-            <img className="mb-10" src={picture} alt="" />
+            <img className="mb-10 rounded-xl" src={picture} alt="" />
           </div>
           <div>
             {description.map((details, index) => (
