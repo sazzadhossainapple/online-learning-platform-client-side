@@ -14,7 +14,7 @@ const LearnigObjective = () => {
         </p>
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 grid-cols-1 gap-10">
-        <div className="text-center flex flex-col justify-center items-center border px-6 py-10 rounded-md ">
+        <div className="text-center flex flex-col justify-center items-center border px-6 py-10 rounded-md hover:border-[#f23276]">
           <p>
             <MdAutoAwesomeMotion className="text-7xl mb-4" />
           </p>
@@ -25,7 +25,7 @@ const LearnigObjective = () => {
             how to take that opportunity.
           </p>
         </div>
-        <div className="text-center flex flex-col justify-center items-center border px-6 py-10 rounded-md ">
+        <div className="text-center flex flex-col justify-center items-center border px-6 py-10 rounded-md hover:border-[#f23276]">
           <p>
             <GiInnerSelf className="text-7xl mb-4" />
           </p>
@@ -36,7 +36,7 @@ const LearnigObjective = () => {
             anything just by your self.
           </p>
         </div>
-        <div className="text-center flex flex-col justify-center items-center border px-6 py-10 rounded-md ">
+        <div className="text-center flex flex-col justify-center items-center border px-6 py-10 rounded-md hover:border-[#f23276] ">
           <p>
             <GiClassicalKnowledge className="text-7xl mb-4" />
           </p>
