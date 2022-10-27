@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../../../asserts/Images/logo.png";
 import { AuthContext } from "../../../context/UserContext/UserContext";
 import Image from "../../../asserts/Images/user.jpg";
@@ -43,33 +43,58 @@ const Navbar = () => {
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black"
           >
             <li>
-              <Link className="hover:text-[#f23276] bg-transparent" to="/">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? `text-[#f23276] hover:text-[#f23276] bg-transparent`
+                    : `hover:text-[#f23276] bg-transparent`
+                }
+                to="/home"
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
 
             <li>
-              <Link
-                className="hover:text-[#f23276] bg-transparent"
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? `text-[#f23276] hover:text-[#f23276] bg-transparent`
+                    : `hover:text-[#f23276] bg-transparent`
+                }
                 to="/courses"
               >
                 Courses
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="hover:text-[#f23276] bg-transparent" to="/faq">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? `text-[#f23276] hover:text-[#f23276] bg-transparent`
+                    : `hover:text-[#f23276] bg-transparent`
+                }
+                to="/faq"
+              >
                 FAQ
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link className="hover:text-[#f23276] bg-transparent" to="/blog">
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? `text-[#f23276] hover:text-[#f23276] bg-transparent`
+                    : `hover:text-[#f23276] bg-transparent`
+                }
+                to="/blog"
+              >
                 Blog
-              </Link>
+              </NavLink>
             </li>
             <li>
               <label
-                for="Toggle1"
-                className="inline-flex items-center space-x-4 cursor-pointer text-gray-100"
+                htmlFor="Toggle1"
+                className="inline-flex items-center space-x-4 cursor-pointer text-gray-100 bg-transparent"
               >
                 <span className="relative">
                   <input
@@ -82,7 +107,7 @@ const Navbar = () => {
                     <>
                       <div className="w-10 h-6 rounded-full shadow-inner peer-checked bg-gray-700"></div>
 
-                      <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-400"></div>
+                      <div className="absolute inset-y-0 right-0 w-4 h-4 m-1 rounded-full shadow peer-checked:left-0 peer-checked:right-auto bg-gray-400"></div>
                     </>
                   ) : (
                     <>
@@ -114,36 +139,81 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
           <li className="mr-3 text-lg ">
-            <Link className="hover:text-[#f23276] bg-transparent" to="/">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? `text-[#f23276] hover:text-[#f23276] bg-transparent`
+                  : `hover:text-[#f23276] bg-transparent`
+              }
+              to="/home"
+            >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li className="mr-3 text-lg">
-            <Link className="hover:text-[#f23276] bg-transparent" to="/courses">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? `text-[#f23276] hover:text-[#f23276] bg-transparent`
+                  : `hover:text-[#f23276] bg-transparent`
+              }
+              to="/courses"
+            >
               Courses
-            </Link>
+            </NavLink>
           </li>
           <li className="mr-3 text-lg">
-            <Link className="hover:text-[#f23276] bg-transparent" to="/faq">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? `text-[#f23276] hover:text-[#f23276] bg-transparent`
+                  : `hover:text-[#f23276] bg-transparent`
+              }
+              to="/faq"
+            >
               FAQ
-            </Link>
+            </NavLink>
           </li>
           <li className="mr-3 text-lg">
-            <Link className="hover:text-[#f23276] bg-transparent" to="/blog">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? `text-[#f23276] hover:text-[#f23276] bg-transparent`
+                  : `hover:text-[#f23276] bg-transparent`
+              }
+              to="/blog"
+            >
               Blog
-            </Link>
+            </NavLink>
           </li>
 
-          <li className="text-lg">
-            <Link className="hover:text-[#f23276] bg-transparent">
-              <input
-                type="checkbox"
-                onClick={() => setDarkToggle(!darkToggle)}
-                className={
-                  darkToggle ? "toggle  bg-gray-700" : "toggle  bg-gray-400"
-                }
-              />
-            </Link>
+          <li>
+            <label
+              htmlFor="Toggle1"
+              className="inline-flex items-center space-x-4 cursor-pointer text-gray-100 bg-transparent"
+            >
+              <span className="relative">
+                <input
+                  onClick={() => setDarkToggle(!darkToggle)}
+                  id="Toggle1"
+                  type="checkbox"
+                  className="hidden peer"
+                />
+                {darkToggle ? (
+                  <>
+                    <div className="w-10 h-6 rounded-full shadow-inner peer-checked bg-gray-700"></div>
+
+                    <div className="absolute inset-y-0 right-0 w-4 h-4 m-1 rounded-full shadow peer-checked:left-0 peer-checked:right-auto bg-gray-400"></div>
+                  </>
+                ) : (
+                  <>
+                    <div className="w-10 h-6 rounded-full shadow-inner peer-checked bg-gray-300"></div>
+
+                    <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-500"></div>
+                  </>
+                )}
+              </span>
+            </label>
           </li>
         </ul>
       </div>

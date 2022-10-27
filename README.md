@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Programming Learning Reactive
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Live Site [Programmin Learning Reactive](https://programminglearningreactive.web.app/).
 
-## Available Scripts
+## Live website Link
 
-In the project directory, you can run:
+https://programminglearningreactive.web.app/
 
-### `npm start`
+### Live Website Link
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Live Link: [https://programminglearningreactive.web.app/](https://programminglearningreactive.web.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `Description`
 
-### `npm test`
+-> This website uses modern javascript react js. React router dom has been used and firebase authentication. Through which the navbar can be navigated.\
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-> Data is loaded from server-side API through react router dom and shown on display.\
 
-### `npm run build`
+-> This website is related to online programming courses. This website programming many programming language users can do the course according to their choice.\
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-> Fill out the login and register form on this website. If the user wants to do any programming course, he has to log in and access it. If the user wants to log in for the first time, he must register first.\
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+->The programming learning reactive website uses protected/private routes. If the user wants to go to the private route then the user must have a login. Otherwise, he will not be given private route access.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Use technologies`
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-> React Router DOM.\
+-> Google Firebase.\
+-> CSS Framework Tailwind CSS (and Tailwind CSS Framework dsisUI).\
+-> HeroIcon.\
+-> React Hot toast.\
+-> React to Pdf.\
