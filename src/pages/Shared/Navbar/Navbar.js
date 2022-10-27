@@ -67,15 +67,32 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link className="hover:text-[#f23276] bg-transparent">
-                <input
-                  type="checkbox"
-                  onClick={() => setDarkToggle(!darkToggle)}
-                  className={
-                    darkToggle ? "toggle  bg-gray-700" : "toggle  bg-gray-400"
-                  }
-                />
-              </Link>
+              <label
+                for="Toggle1"
+                className="inline-flex items-center space-x-4 cursor-pointer text-gray-100"
+              >
+                <span className="relative">
+                  <input
+                    onClick={() => setDarkToggle(!darkToggle)}
+                    id="Toggle1"
+                    type="checkbox"
+                    className="hidden peer"
+                  />
+                  {darkToggle ? (
+                    <>
+                      <div className="w-10 h-6 rounded-full shadow-inner peer-checked bg-gray-700"></div>
+
+                      <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-400"></div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="w-10 h-6 rounded-full shadow-inner peer-checked bg-gray-300"></div>
+
+                      <div className="absolute inset-y-0 left-0 w-4 h-4 m-1 rounded-full shadow peer-checked:right-0 peer-checked:left-auto bg-gray-500"></div>
+                    </>
+                  )}
+                </span>
+              </label>
             </li>
           </ul>
         </div>

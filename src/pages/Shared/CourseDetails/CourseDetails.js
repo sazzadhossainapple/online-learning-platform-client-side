@@ -38,7 +38,10 @@ const CourseDetails = () => {
           </div>
           <div>
             {description.map((details, index) => (
-              <p key={index} className="flex  gap-2 mb-4 text-gray-600">
+              <p
+                key={index}
+                className="flex  gap-2 mb-4  text-gray-700 text-lg"
+              >
                 <span className="mt-1">
                   <AiOutlineArrowRight className="text-[#1e467f]" />
                 </span>

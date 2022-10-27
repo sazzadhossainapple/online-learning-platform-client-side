@@ -5,7 +5,7 @@ import Image from "../../../asserts/Images/bg2.jpg";
 const Banner = () => {
   return (
     <div
-      className="w-full -mt-[84px] lg:h-[100vh] md:h-[80vh] sm:h-[50vh] h-[50vh] flex justify-center items-center bg-gray-600 from-slate-300 "
+      className="w-full -mt-[84px] lg:h-[100vh] md:h-[80vh] sm:h-[80vh] h-[80vh] flex justify-center items-center bg-gray-600 from-slate-300 "
       style={{
         backgroundImage: `url(${Image})`,
         backgroundBlendMode: "multiply",
