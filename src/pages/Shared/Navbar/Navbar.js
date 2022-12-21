@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../../../asserts/Images/logo.png";
@@ -7,7 +7,7 @@ import Image from "../../../asserts/Images/user.jpg";
 
 const Navbar = () => {
   const { user, signOutUser } = useContext(AuthContext);
-  const [darkToggle, setDarkToggle] = useState(false);
+  // const [darkToggle, setDarkToggle] = useState(false);
 
   //user logout
   const logOutUser = () => {
@@ -91,7 +91,7 @@ const Navbar = () => {
                 Blog
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <label
                 htmlFor="Toggle1"
                 className="inline-flex items-center space-x-4 cursor-pointer text-gray-100 bg-transparent"
@@ -118,7 +118,7 @@ const Navbar = () => {
                   )}
                 </span>
               </label>
-            </li>
+            </li> */}
           </ul>
         </div>
         <Link className=" normal-case text-xl">
@@ -187,7 +187,7 @@ const Navbar = () => {
             </NavLink>
           </li>
 
-          <li>
+          {/* <li>
             <label
               htmlFor="Toggle1"
               className="inline-flex items-center space-x-4 cursor-pointer text-gray-100 bg-transparent"
@@ -214,7 +214,7 @@ const Navbar = () => {
                 )}
               </span>
             </label>
-          </li>
+          </li> */}
         </ul>
       </div>
       <div className="navbar-end">

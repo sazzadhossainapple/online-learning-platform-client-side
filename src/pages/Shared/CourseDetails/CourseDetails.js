@@ -11,7 +11,7 @@ const CourseDetails = () => {
   const { title, id, picture, description } = courseDetails;
 
   return (
-    <div className="lg:px-16 md:px-16 sm:px-8 px-8 lg:py-16 md:py-16 sm:py-10 py-8">
+    <div className="md:w-3/4 mx-auto sm:px-8 px-8 lg:py-16 md:py-16 sm:py-10 py-8">
       <div className="flex justify-end mb-8">
         <Pdf targetRef={ref} filename={`${title}.pdf`} x={2} y={2} scale={0.6}>
           {({ toPdf }) => (
@@ -25,7 +25,7 @@ const CourseDetails = () => {
         </Pdf>
       </div>
 
-      <div ref={ref}>
+      <div className="" ref={ref}>
         <div className="border p-8">
           <h1
             className="text-center text-3xl font-bold
@@ -36,7 +36,7 @@ const CourseDetails = () => {
           <div className="lg:w-96 md:w-96 sm:w-full w-full mx-auto">
             <img className="mb-10 rounded-xl" src={picture} alt="" />
           </div>
-          <div>
+          <div className="">
             {description.map((details, index) => (
               <p
                 key={index}
